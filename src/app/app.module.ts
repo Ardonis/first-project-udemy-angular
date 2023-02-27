@@ -21,7 +21,6 @@ import { FormsModule } from '@angular/forms';
     RecipeItemComponent,
     ShoppingListComponent,
     ShoppingEditComponent,
-    FormsModule ,
   ],
   imports: [
     BrowserModule
