@@ -9,17 +9,17 @@ export class RecipeService{
 
     private recipes: Recipe[] = [
         new Recipe(
-          'A test Recipe',
-          'Recipe Image',
-          'https://img.freepik.com/free-photo/vegetables-set-left-black-slate_1220-685.jpg?w=1060&t=st=1677141779~exp=1677142379~hmac=261aa9d96ac0383c5dac93d195f2d9bc4f9fb4ee4547390f18dac96650f6d330',[
+          'Hamburger',
+          ' Fast-Food Restaurants dish',
+          'https://upload.wikimedia.org/wikipedia/commons/thumb/4/47/Hamburger_%28black_bg%29.jpg/1200px-Hamburger_%28black_bg%29.jpg',[
             new Ingredient('Meat', 1),
             new Ingredient('French Fries', 20)
           ]
         ),
         new Recipe(
-          'A test Recipe',
+          'Sandwitch',
           'Recipe Image',
-          'https://picturetherecipe.com/wp-content/uploads/2020/04/PictureTheRecipe-Butter-Chicken.jpg',[
+          'https://imagesvc.meredithcorp.io/v3/mm/image?url=https%3A%2F%2Fimg1.cookinglight.timeinc.net%2Fsites%2Fdefault%2Ffiles%2Fstyles%2Fmedium_2x%2Fpublic%2F1556744250%2Fthe-ultimate-veggie-sandwich-1905.jpg%3Fitok%3D1ip9ZNIm&w=600&c=sc&poi=face&q=60',[
             new Ingredient('Buns', 2),
             new Ingredient('Meat', 1)
           ]
@@ -28,8 +28,12 @@ export class RecipeService{
 
       constructor(private slServer:ShoppingListService){}
 
-      getRecipe(){
+      getRecipes(){
         return this.recipes.slice();
+      }
+
+      getRecipe(index:number){
+        return this.recipes[index]
       }
 
       addIngToShopList(ingedients:Ingredient[]){
