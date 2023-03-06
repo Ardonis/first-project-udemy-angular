@@ -1,9 +1,8 @@
-import { EventEmitter } from "@angular/core";
 import { Ingredient } from "../shred/ingredient.module";
-
+import { Subject } from "rxjs";
 export class ShoppingListService{
 
-  IngredientChanged = new EventEmitter<Ingredient[]>();
+  IngredientChanged = new Subject<Ingredient[]>();
     private ingridients: Ingredient[] = [
         new Ingredient('Apple', 5),
         new Ingredient('Tomatoes', 5)
@@ -15,7 +14,7 @@ export class ShoppingListService{
 
       addIngredient(ingredient:Ingredient){
         this.ingridients.push(ingredient)
-        this.IngredientChanged.emit(this.ingridients.slice())
+        this.IngredientChanged.next(this.ingridients.slice())
       }
 
       addIngredients(ingredients:Ingredient[]){
@@ -23,6 +22,6 @@ export class ShoppingListService{
         //   this.addIngredient(ingredient)
         // }
         this.ingridients.push(...ingredients)
-        this.IngredientChanged.emit(this.ingridients.slice())
+        this.IngredientChanged.next(this.ingridients.slice())
       }
 }
